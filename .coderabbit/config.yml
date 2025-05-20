@@ -1,0 +1,16 @@
+enabled: true
+
+review:
+  languages: [ "kotlin", "java" ]
+  review_scope: "diff-only"          # options: full, diff-only, project
+  max_comments: 15
+  poem: false
+  auto_title_placeholder: "@coderabbitai"
+  auto_title_instructions: "Review the pull request title and suggest improvements if it’s unclear, lacks context, or doesn’t follow our naming convention."
+
+tone: "constructive"            # options: friendly, professional, direct, constructive
+
+rules:
+  - avoid_println
+  - enforce_unit_tests
+  - no_hardcoded_secrets

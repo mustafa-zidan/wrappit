@@ -1,7 +1,11 @@
+import kotlinx.kover.gradle.plugin.dsl.AggregationType
+import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
+
 plugins {
     kotlin("jvm") version "2.1.20"
     kotlin("plugin.allopen") version "2.1.20"
     id("io.quarkus")
+    id("org.jetbrains.kotlinx.kover") version "0.9.1"
 }
 
 repositories {
@@ -45,5 +49,19 @@ kotlin {
     compilerOptions {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
         javaParameters = true
+    }
+}
+
+kover {
+    reports {
+        verify{
+            rule {
+                bound {
+                    minValue = 90  // 90% coverage required for changed lines
+                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE // Default aggregation
+                    coverageUnits = CoverageUnit.LINE
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,13 @@
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Required to get file changes
+
+      # For Kotlin with Kover
+      - name: Check changed files coverage
+        run: |
+          ./gradlew koverVerify \
+            -Pkover.includes="$(git diff --name-only origin/main... | grep -E '\.kt$' | tr '\n' ',')"

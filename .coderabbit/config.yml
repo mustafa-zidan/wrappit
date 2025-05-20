@@ -10,7 +10,16 @@ review:
 
 tone: "constructive"            # options: friendly, professional, direct, constructive
 
+
+instructions:
+  - "If a new REST endpoint is created, verify there's a corresponding test case."
+  - "Warn about any controller method that lacks input validation or exception handling."
+  - "Check for usage of our structured logger (LoggerFactory.getLogger())."
+  - "Flag any logging of passwords or access tokens."
+  - "Ensure all public models used in REST responses have documentation comments."
+
+
 rules:
-  - avoid_println
-  - enforce_unit_tests
   - no_hardcoded_secrets
+  - avoid_plain_password_logging
+  - enforce_test_coverage

@@ -1,0 +1,19 @@
+enabled: true
+
+review:
+  languages: [ "kotlin", "java" ]
+  review_scope: "diff-only"          # options: full, diff-only, project
+  profile: "assertive"          # options: chill, assertive
+  max_comments: 15
+  poem: false
+  auto_title_placeholder: "@coderabbitai"
+  auto_title_instructions: "Review the pull request title and suggest improvements if it’s unclear, lacks context, or doesn’t follow our naming convention."
+  request_changes_workflow: true  # Blocks PR merge when requirements aren't met
+
+finishing_touches:
+  unit_tests:
+    enabled: true  # Suggests tests for any uncovered code changes
+
+tools:
+  github-checks:
+    enabled: true  # Integrates with your CI coverage reports

@@ -54,6 +54,9 @@ kotlin {
     }
 }
 
+// No need for additional configuration as we're using --exclude-task quarkusAppPartsBuild
+// when running the koverVerify task
+
 kover {
     reports {
         verify{
@@ -61,7 +64,7 @@ kover {
                 bound {
                     minValue = 90  // 90% coverage required for changed lines
                     aggregationForGroup = AggregationType.COVERED_PERCENTAGE // Default aggregation
-                    coverageUnits = CoverageUnit.LINE
+                    coverageUnits = CoverageUnit.BRANCH // number of branches covered
                 }
             }
         }

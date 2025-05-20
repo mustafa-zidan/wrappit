@@ -9,5 +9,5 @@ jobs:
       # For Kotlin with Kover
       - name: Check changed files coverage
         run: |
-          ./gradlew koverVerify \
+          ./gradlew koverVerify --exclude-task quarkusAppPartsBuild \
             -Pkover.includes="$(git diff --name-only origin/main... | grep -E '\.kt$' | tr '\n' ',')"
